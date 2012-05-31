@@ -1,0 +1,242 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, ComCtrls, TabNotBk, Tabs, XPMan, StdCtrls, Menus, jpeg,
+  Buttons;
+
+type
+  TForm1 = class(TForm)
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
+    TabSheet5: TTabSheet;
+    Label1: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    RadioButton5: TRadioButton;
+    procedure Button1click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure hallo(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+  private
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+var x1, x2, x3, y1, y2, y3 : integer;
+    a : real;
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1click(Sender: TObject);
+begin
+pagecontrol1.ActivePageIndex:=1;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+pagecontrol1.ActivePageIndex:=0;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+pagecontrol1.ActivePageIndex:=2;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+pagecontrol1.ActivePageIndex:=3;
+end;
+
+procedure TForm1.hallo(Sender: TObject);
+begin
+if radiobutton1.Checked=true then begin
+ x3:=mouse.CursorPos.x-image1.left;
+ y3:=mouse.Cursorpos.y-image1.top;
+ x1:=round(x3/100)*100-55;
+ x2:=x1+100;
+ y1:=round(y3/100)*100-98;
+ y2:=y1+100;
+ image1.Canvas.Pen.Width:=1;
+ image1.Canvas.Pen.Color:=clgray;
+ image1.canvas.Rectangle(x1,y1,x2,y2);
+ image1.Canvas.Pen.Color:=clblack;
+ image1.Canvas.Pen.Width:=3;
+ image1.Canvas.MoveTo(x1,y1+10);
+ image1.Canvas.LineTo(x2,y1+10);
+ image1.Canvas.MoveTo(x1,y1+90);
+ image1.Canvas.LineTo(x2,y1+90);
+ end;
+if radiobutton2.Checked=true then begin
+ x3:=mouse.CursorPos.x-image1.left;
+ y3:=mouse.Cursorpos.y-image1.top;
+ x1:=round(x3/100)*100-55;
+ x2:=x1+100;
+ y1:=round(y3/100)*100-98;
+ y2:=y1+100;
+ image1.Canvas.Pen.Width:=1;
+ image1.Canvas.Pen.Color:=clgray;
+ image1.canvas.Rectangle(x1,y1,x2,y2);
+ image1.Canvas.Pen.Color:=clblack;
+ image1.Canvas.Pen.Width:=3;
+ image1.Canvas.MoveTo(x1+10,y1);
+ image1.Canvas.LineTo(x1+10,y2);
+ image1.Canvas.MoveTo(x1+90,y1);
+ image1.Canvas.LineTo(x1+90,y2);
+ end;
+if radiobutton3.Checked=true then begin
+ x3:=mouse.CursorPos.x-image1.left;
+ y3:=mouse.Cursorpos.y-image1.top;
+ x1:=round(x3/100)*100-55;
+ x2:=x1+100;
+ y1:=round(y3/100)*100-98;
+ y2:=y1+100;
+ image1.Canvas.Pen.Width:=1;
+ image1.Canvas.Pen.Color:=clgray;
+ image1.canvas.Rectangle(x1,y1,x2,y2);
+ image1.Canvas.Pen.Color:=clblack;
+ image1.Canvas.Pen.Width:=3;
+ image1.Canvas.MoveTo(x1+90,y2);
+ a:=0;
+
+ repeat
+
+ a:=a+pi/90;
+ image1.Canvas.lineTo(round(x1+90*cos(a)),round(y2-90*sin(a)));
+
+ until a>=pi/2;
+
+ a:=0;
+ image1.Canvas.MoveTo(x1+10,y2);
+
+ repeat
+
+ a:=a+pi/90;
+ image1.Canvas.lineTo(round(x1+10*cos(a)),round(y2-10*sin(a)));
+
+ until a>=pi/2;
+
+ end;
+if radiobutton4.Checked=true then begin
+ x3:=mouse.CursorPos.x-image1.left;
+ y3:=mouse.Cursorpos.y-image1.top;
+ x1:=round(x3/100)*100-55;
+ x2:=x1+100;
+ y1:=round(y3/100)*100-98;
+ y2:=y1+100;
+ image1.Canvas.Pen.Width:=1;
+ image1.Canvas.Pen.Color:=clgray;
+ image1.canvas.Rectangle(x1,y1,x2,y2);
+ image1.Canvas.Pen.Color:=clblack;
+ image1.Canvas.Pen.Width:=3;
+ image1.Canvas.MoveTo(x2,y1+10);
+ a:=pi/2;
+
+ repeat
+
+ a:=a+pi/90;
+ image1.Canvas.lineTo(round(x2+90*cos(a)),round(y2-90*sin(a)));
+
+ until a>=pi;
+
+ a:=pi/2;
+ image1.Canvas.MoveTo(x2,y1+90);
+
+ repeat
+
+ a:=a+pi/90;
+ image1.Canvas.lineTo(round(x2+10*cos(a)),round(y2-10*sin(a)));
+
+ until a>=pi;
+
+ end;
+if radiobutton5.Checked=true then begin
+ x3:=mouse.CursorPos.x-image1.left;
+ y3:=mouse.Cursorpos.y-image1.top;
+ x1:=round(x3/100)*100-55;
+ x2:=x1+100;
+ y1:=round(y3/100)*100-98;
+ y2:=y1+100;
+ image1.Canvas.Pen.Width:=1;
+ image1.Canvas.Pen.Color:=clgray;
+ image1.canvas.Rectangle(x1,y1,x2,y2);
+ image1.Canvas.Pen.Color:=clblack;
+ image1.Canvas.Pen.Width:=3;
+ image1.Canvas.MoveTo(x1+10,y1);
+ a:=pi;
+
+ repeat
+
+ a:=a+pi/90;
+ image1.Canvas.lineTo(round(x2+90*cos(a)),round(y1-90*sin(a)));
+
+ until a>=(3/2)*pi;
+
+ a:=pi;
+ image1.Canvas.MoveTo(x1+90,y1);
+
+ repeat
+
+ a:=a+pi/90;
+ image1.Canvas.lineTo(round(x2+10*cos(a)),round(y1-10*sin(a)));
+
+ until a>=(3/2)*pi;
+
+ end;
+end;
+
+procedure TForm1.Image2Click(Sender: TObject);
+begin
+radiobutton1.Checked:=true;
+end;
+
+procedure TForm1.Image3Click(Sender: TObject);
+begin
+radiobutton2.Checked:=true;
+end;
+
+procedure TForm1.Image4Click(Sender: TObject);
+begin
+radiobutton3.Checked:=true;
+end;
+
+procedure TForm1.Image5Click(Sender: TObject);
+begin
+radiobutton4.Checked:=true;
+end;
+
+end.
